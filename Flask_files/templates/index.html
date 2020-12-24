@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pneumonia Prediction</title>
+	<link rel="stylesheet" href="static/style.css" type="text/css">
+	<!--<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">-->
+<script>
+	var loadFile = function(event){
+		var image = document.getElementById('output');
+		image.src=URL.createObjectURL(event.target.files[0]);
+	};
+	
+</script>
+</head>
+<body>
+	<center>
+<form action="http://localhost:5000/predict" method="post"  enctype="multipart/form-data">
+	<div id="background">
+		<div id="page">
+			<div id="header">
+				<div id="navigation">
+					<ul>
+						<li class="selected">
+							<a href="index.html">Index</a>
+						</li>
+						<li>
+							<a href="about.html">About Project</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="contents">
+				<div id="adbox">
+					<img id="output" alt="Imgage" width="650" height="426" onerror="this.style.display='none'"/>
+				</div>
+				<div class="navigation">
+					<input type="file" accept="image/" name="image" id="file" onchange="loadFile(event)" style="display:none;">
+					<!-- <p><b>{{z}}</b></p> -->
+					<b><label for="file" style="  background-color:#369882;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">Upload Image</label></b><br>
+					<input type="submit" style="  background-color:#369882;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">
+				</center>
+				</div>
+</form>
+</body>
+</html>
